@@ -2,10 +2,10 @@ name: VSCODE vsix
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-    
+    branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,20 +17,20 @@ jobs:
         with:
           node-version: 14.x
       - name: Install dependencies
-        run: npm install    
+        run: npm install
       - name: install vsce globally
         run: npm install -g vsce
       - name: Generate build
         run: npm run package
       - name: List current direcory files
         run: ls -l
+      - name: create folder of current date
+        run: mkdir releases/$(date +"%d-%m-%Y") && ls -l releases
       - name: Move build
-        run: mv *.vsix releases
+        run: mv *.vsix releases/$(date +"%d-%m-%Y")
       # Share artifact inside workflow
       - name: Share artifact inside workflow
         uses: actions/upload-artifact@v1
         with:
-         name: helloworld
-         path: releases
-      - name: create folder of current date
-        run: mkdir releases/%date:~-7,2%"-"%date:~10,2%"-"%date:~-4,4% && ls -l releases
+          name: helloworld
+          path: releases
