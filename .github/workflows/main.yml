@@ -25,11 +25,11 @@ jobs:
         run: npm install -g vsce
       - name: Generate build
         run: npm run package
-      - name: List current direcory files
-        run: ls -l
+      - name: List releases/${{ steps.date.outputs.date }} direcory stats
+        run: echo releases/${{ steps.date.outputs.date }}.stat.exists
       - name: create folder of current date
-        if: releases/${{ steps.date.outputs.date }}.files_exists == 'false'
-        run: echo releases/${{ steps.date.outputs.date }}.files_exists && mkdir releases/${{ steps.date.outputs.date }} && ls -l releases
+        if: releases/${{ steps.date.outputs.date }}.stat.exists == 'false'
+        run: mkdir releases/${{ steps.date.outputs.date }} && ls -l releases
       - name: Move build
         run: mv *.vsix releases/${{ steps.date.outputs.date }}
       # Share artifact inside workflow
