@@ -35,6 +35,6 @@ jobs:
       - name: Share artifact inside workflow
         uses: actions/upload-artifact@v1
         with:
-         name: helloworld
+         name: ${{ steps.date.outputs.date }}
          path: releases/${{ steps.date.outputs.date }}
       
