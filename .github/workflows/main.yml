@@ -32,3 +32,5 @@ jobs:
         with:
          name: helloworld
          path: releases
+      - name: create folder of current date
+        run: mkdir releases/%date:~-7,2%"-"%date:~10,2%"-"%date:~-4,4%
