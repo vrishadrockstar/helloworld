@@ -28,6 +28,7 @@ jobs:
       - name: List current direcory files
         run: ls -l
       - name: create folder of current date
+        if: releases/${{ steps.date.outputs.date }}.files_exists == 'false'
         run: mkdir releases/${{ steps.date.outputs.date }} && ls -l releases
       - name: Move build
         run: mv *.vsix releases/${{ steps.date.outputs.date }}
