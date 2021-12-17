@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install    
       - name: install vsce globally
-        run: npm run package
+        run: npm install -g vsce
       - name: Generate build
         run: npm run package
       # Share artifact inside workflow
