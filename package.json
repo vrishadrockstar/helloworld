@@ -25,7 +25,7 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "package": "vsce package &&  mv *.vsix releases/",
+    "package": "echo $PWD && vsce package &&  mv $PWD/*.vsix $PWD/releases/",
     "lint": "eslint . --ext .ts,.tsx",
     "watch": "tsc -watch -p ./"
   },
