@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    DATE: $(date +"%d-%m-%Y")
+    RELEASE_DATE: $(date +"%d-%m-%Y")
 
     steps:
       - name: Clone repository
@@ -27,12 +27,12 @@ jobs:
       - name: List current direcory files
         run: ls -l
       - name: create folder of current date
-        run: mkdir releases/$DATE && ls -l releases
+        run: mkdir releases/$RELEASE_DATE && ls -l releases
       - name: Move build
-        run: mv *.vsix releases/$DATE
+        run: mv *.vsix releases/$RELEASE_DATE
       # Share artifact inside workflow
       - name: Share artifact inside workflow
         uses: actions/upload-artifact@v1
         with:
           name: helloworld
-          path: releases/$DATE
+          path: releases/$RELEASE_DATE
