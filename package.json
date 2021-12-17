@@ -1,43 +1,43 @@
 {
-	"name": "helloworld-sample",
-	"displayName": "helloworld-sample",
-	"description": "HelloWorld example for VS Code",
-	"version": "0.0.1",
-	"repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
-	"engines": {
-		"vscode": "^1.34.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:extension.helloWorld"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"package": "vsce package",
-		"lint": "eslint . --ext .ts,.tsx",
-		"watch": "tsc -watch -p ./"
-	},
-	"devDependencies": {
-		"@types/node": "^12.12.0",
-		"@types/vscode": "^1.34.0",
-		"@typescript-eslint/eslint-plugin": "^4.16.0",
-		"@typescript-eslint/parser": "^4.16.0",
-		"eslint": "^7.21.0",
-		"typescript": "^4.2.2"
-	},
-	"dependencies": {
-		"vsce": "^2.5.2"
-	}
+  "name": "helloworld-sample",
+  "displayName": "helloworld-sample",
+  "description": "HelloWorld example for VS Code",
+  "version": "0.0.2",
+  "repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
+  "engines": {
+    "vscode": "^1.34.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.helloWorld"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "package": "vsce package &&  mv *.vsix releases/",
+    "lint": "eslint . --ext .ts,.tsx",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.0",
+    "@types/vscode": "^1.34.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.0",
+    "@typescript-eslint/parser": "^4.16.0",
+    "eslint": "^7.21.0",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "vsce": "^2.5.2"
+  }
 }
